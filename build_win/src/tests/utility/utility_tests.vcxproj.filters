@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\utility\utility_test.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\utility\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{13168989-F978-345C-9E43-D2690F6EAE11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

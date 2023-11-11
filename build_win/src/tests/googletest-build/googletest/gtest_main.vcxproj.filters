@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googletest\src\gtest_main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googletest\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{018E8284-51F2-32C6-8A9E-EBDE0F29ACCD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
