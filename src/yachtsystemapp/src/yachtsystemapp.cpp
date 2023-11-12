@@ -98,9 +98,75 @@ void handleYachtOperations() {
     }
   }
 }
+void handleDockingAreas() {
+  cout << "\n";
+  cout << "Docking Areas Information...\n";
+  printSeparator();
+  cout << "azkar harbor (available)\n";
+  cout << "feudal harbor (available)\n";
+  cout << "lighthouse harbor (unavailable)\n";
+  cout << "bigboy harbor (available)\n";
+}
+
+void handleMaintenanceInformation() {
+  cout << "Maintenance Information...\n";
+  // Buraya Maintenance ile ilgili kodlarý ekleyin
+}
+
+void handleRefuelingStations() {
+  cout << "Refueling Stations Information...\n";
+  // Buraya Refueling Stations ile ilgili kodlarý ekleyin
+}
+
+void handleMaintenanceCrewDetails() {
+  cout << "Maintenance Crew Details...\n";
+  // Buraya Maintenance Crew ile ilgili kodlarý ekleyin
+}
+
 void handleHarborServices() {
-  cout << "Harbor Services...\n";
-  // Information about docking spaces, fuel stations, maintenance crew bla bla.
+  string input;
+  int choice;
+  bool HarborRunning = true;
+
+  while (HarborRunning) {
+    printSeparator();
+    cout << "Harbor Services...\n";
+    cout << "1) Docking Areas\n";
+    cout << "2) Maintenance Information\n";
+    cout << "3) Refueling Stations\n";
+    cout << "4) Maintenance Crew Details\n";
+    cout << "5) Return to Admin Menu\n";
+    cout << "Please enter your choice: ";
+    getline(cin, input);
+
+    if (!tryAppendIntegerToString(input, choice))
+      continue;
+
+    switch (choice) {
+      case 1:
+        handleDockingAreas();
+        break;
+
+      case 2:
+        handleMaintenanceInformation();
+        break;
+
+      case 3:
+        handleRefuelingStations();
+        break;
+
+      case 4:
+        handleMaintenanceCrewDetails();
+        break;
+
+      case 5:
+        HarborRunning = false;
+        break;
+
+      default:
+        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    }
+  }
 }
 
 void handleReservationServices() {
