@@ -64,8 +64,8 @@ void handleYachtOperations() {
   bool yachtRunning = true;
 
   while (yachtRunning) {
+    cout << "\nYacht Operations:\n";
     printSeparator();
-    cout << "Yacht Operations:\n";
     cout << "1. Add Yacht\n";
     cout << "2. Remove Yacht\n";
     cout << "3. List Yachts\n";
