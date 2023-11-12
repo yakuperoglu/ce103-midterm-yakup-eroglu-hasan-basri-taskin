@@ -1,21 +1,17 @@
-/**
- * @file yachtsystemapp.cpp
- * @brief A simple program to demonstrate the usage of the yachtsystem model class.
- *
- * This program process infix notations and calculate operations
- *
- */
-
 // Standard Libraries
 #include <iostream>
 #include <sstream>
-//#include "../../yachtsystem/header/yachtsystem.h"  Added library reference to consoleapp so we dont need to define path.
+//For dynamic arrays
 #include <vector>
-
+//#include "../../yachtsystem/header/yachtsystem.h"  Added library reference to consoleapp so we dont need to define path.
 #include "yachtsystem.h"  // Adjust this include path based on your project structure
 
 using namespace Coruh::Yachtsystem;
 using  namespace std;
+
+//Define all yachts to global.
+//If we want to store yachts in an array we must define vector.We can also say vectors, dynamic arrays.
+vector<Yacht> yachts;
 
 // Created a function for separator
 void printSeparator() {
@@ -44,21 +40,98 @@ bool tryAppendIntegerToString(const string &input, int &choice) {
 
   return true;
 }
-void addYacht(vector<Yacht> &yachts) {
-  //AddFunc
+
+void addYacht() {
+  string name, lengthInput;
+  int length;
+  cout << "\n";
+  printSeparator();
+  cout << "Enter Yacht Name (or type 'exit' to cancel): ";
+  getline(cin, name);
+
+  if (name == "exit") {
+    cout << "Yacht addition cancelled." << endl;
+    return; // Abort the proceess and exit function.
+  }
+
+  while (true) {
+    cout << "Enter Yacht Length (or type 'exit' to cancel): ";
+    getline(cin, lengthInput);
+
+    if (lengthInput == "exit") {
+      cout << "Yacht addition cancelled." << endl;
+      return; // Abort the proceess and exit function.
+    }
+
+    //Check the length must be higher than 0 or must be integer.
+    if (tryAppendIntegerToString(lengthInput, length) && length > 0) {
+      break; // The ýnput value is correct so contine the function
+    } else {
+      if (length < 0)
+        cout << "Invalid input. Please enter a positive number." << endl;
+    }
+  }
+
+  // Create a yacht and then add the list
+  Yacht newYacht;
+  newYacht.setName(name);
+  newYacht.setLength(length);
+  //push_back is a function of vectors. This function add the new yacht to list.
+  yachts.push_back(newYacht);
+  cout << "\nYacht added.\n";
+  printSeparator();
 }
 
-void removeYacht(vector<Yacht> &yachts) {
-  //RemoveFunc
+void listYachts() {
+  if (yachts.empty()) {
+    cout << "\nThere is no yacht." << endl;
+    return;
+  }
+
+  printSeparator();
+  cout << "Listing all yachts:" << endl;
+  int index = 1;
+
+  for (const Yacht yacht : yachts) {
+    cout << index++ << ". ";
+    yacht.displayInfo();
+    cout << endl;
+  }
 }
 
-void listYachts(const vector<Yacht> &yachts) {
-  //ListFunc
+void removeYacht() {
+  if (yachts.empty()) {
+    cout << "\nThere are no yachts to remove." << endl;
+    return;
+  }
+
+  while (true) {
+    listYachts();
+    cout << "Enter the number of the yacht to remove (or type 'exit' to cancel): ";
+    string input;
+    getline(cin, input);
+
+    if (input == "exit") {
+      cout << "Yacht removal cancelled." << endl;
+      break; // Cancel the proccess and exit the function.
+    }
+
+    int choice;
+
+    //Check if input string or lower than 0 or higher than yacht size enter new value to user.
+    if (tryAppendIntegerToString(input, choice) && choice > 0 && choice <= static_cast<int>(yachts.size())) {
+      //erase is a function of vectors. It deletes by index.
+      yachts.erase(yachts.begin() + choice - 1); // Index adjustment since vector index starts from 0
+      cout << "Yacht removed." << endl;
+      return; // Delete yacht and exit the function
+    } else {
+      cout << "Invalid input. Please try again." << endl;
+    }
+  }
 }
+
 void handleYachtOperations() {
   string input;
-  //If we want to store yachts in an array we must define vector. We can also say vectors, dynamic arrays.
-  vector<Yacht> yachts;
   int choice;
   //As long as this variable is true, yacht menu runs always
   bool yachtRunning = true;
@@ -78,15 +151,15 @@ void handleYachtOperations() {
 
     switch (choice) {
       case 1:
-        addYacht(yachts);
+        addYacht();
         break;
 
       case 2:
-        removeYacht(yachts);
+        removeYacht();
         break;
 
       case 3:
-        listYachts(yachts);
+        listYachts();
         break;
 
       case 4:
