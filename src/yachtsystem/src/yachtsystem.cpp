@@ -1,6 +1,5 @@
 #include "../header/yachtsystem.h"
-#include <stdexcept>
+#include <iostream>
 
 using namespace Coruh::Yachtsystem;
-
-//
+using namespace std;

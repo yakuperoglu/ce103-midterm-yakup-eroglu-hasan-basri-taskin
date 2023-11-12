@@ -13,8 +13,11 @@ namespace Coruh {
 namespace Yachtsystem {
 class Yacht {
  public:
-  Yacht(const string &name, int length);  // Constructor
-  void displayInfo() const;  // Show yacht info
+  void setName(const std::string &name);  // Set the name of the yacht
+  void setLength(int length);         // Set the length of the yacht
+  //We setted const this function because this function just read our variables. It cannot be changed with this function.
+  void displayInfo() const;              // Display yacht information
+
 
  private:
   string name;
@@ -23,8 +26,10 @@ class Yacht {
 
 class Harbor {
  public:
-  Harbor(const string &location, int capacity);  // Constructor
-  void displayInfo() const;  // Show harbor info
+  void setLocation(const std::string &location); // Set the location of the harbor
+  void setCapacity(int capacity);              // Set the capacity of the harbor
+  //We setted const this function because this function just read our variables. It cannot be changed with this function.
+  void displayInfo() const;                     // Display harbor information
 
  private:
   string location;
@@ -33,8 +38,11 @@ class Harbor {
 
 class Reservation {
  public:
-  Reservation(const string &customerName, const string &date);  // Constructor
-  void displayInfo() const;  // show reservation infos
+  void setCustomerName(const std::string &name);  // Set the customer's name
+  void setReservationDate(const std::string &date); // Set the reservation date
+  //We setted const this function because this function just read our variables. It cannot be changed with this function.
+  void displayInfo() const;                         // Display reservation information
+
 
  private:
   string customerName;
