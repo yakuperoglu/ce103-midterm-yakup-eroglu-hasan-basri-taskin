@@ -9,7 +9,8 @@
 // Standard Libraries
 #include <iostream>
 #include <sstream>
-#include "../../yachtsystem/header/yachtsystem.h"  // Adjust this include path based on your project structure
+//#include "../../yachtsystem/header/yachtsystem.h"  Added library reference to consoleapp so we dont need to define path.
+#include "yachtsystem.h"  // Adjust this include path based on your project structure
 
 using namespace Coruh::Yachtsystem;
 using  namespace std;
