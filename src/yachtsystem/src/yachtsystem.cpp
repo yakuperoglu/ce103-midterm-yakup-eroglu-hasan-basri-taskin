@@ -15,7 +15,7 @@ void Yacht::setLength(int length) {
 }
 
 void Yacht::displayInfo() const {
-  cout << "Yacht Name: " << name << ", Length: " << length ; //Displays the name and length values ​​of the Yacht object
+  cout << "Yacht Name: " << name << ", Length: " << length; //Displays the name and length values ​​of the Yacht object
 }
 
 // Harbor class methods
@@ -28,7 +28,7 @@ void Harbor::setCapacity(int capacity) {
 }
 
 void Harbor::displayInfo() const {
-  cout << "Harbor Location: " << location << ", Capacity: " << capacity ; //Displays the location and capacity values of the Harbor object
+  cout << "Harbor Location: " << location << ", Capacity: " << capacity; //Displays the location and capacity values of the Harbor object
 }
 
 // Reservation class methods
@@ -41,5 +41,5 @@ void Reservation::setReservationDate(const string &date) {
 }
 
 void Reservation::displayInfo() const {
-  cout << "Reservation Name: " << customerName << ", Date: " << reservationDate ; //Displays the customerName and reservarionDate
+  cout << "Reservation Name: " << customerName << ", Date: " << reservationDate; //Displays the customerName and reservarionDate
 }
