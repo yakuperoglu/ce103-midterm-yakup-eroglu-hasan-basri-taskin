@@ -102,25 +102,40 @@ void handleDockingAreas() {
   cout << "\n";
   cout << "Docking Areas Information...\n";
   printSeparator();
-  cout << "azkar harbor (available)\n";
-  cout << "feudal harbor (available)\n";
-  cout << "lighthouse harbor (unavailable)\n";
-  cout << "bigboy harbor (available)\n";
+  cout << "Azkar Harbor (available)\n";
+  cout << "Feudal Harbor (available)\n";
+  cout << "Bighthouse Harbor (unavailable)\n";
+  cout << "Bigboy Harbor (available)\n";
 }
 
 void handleMaintenanceInformation() {
+  cout << "\n";
   cout << "Maintenance Information...\n";
-  // Buraya Maintenance ile ilgili kodlarý ekleyin
+  printSeparator();
+  cout << " yacht_name " << " yacht_condition " << "Last_maintenance " << " Next_maintenance\n";
 }
 
 void handleRefuelingStations() {
+  cout << "\n";
   cout << "Refueling Stations Information...\n";
-  // Buraya Refueling Stations ile ilgili kodlarý ekleyin
+  printSeparator();
+  cout << "Azkar Fuel Station (available)\n";
+  cout << "Fuedal Fuel Station (available)\n";
+  cout << "Bighthouse Fuel Station (unavailable)\n";
+  cout << "Bigboy Fuel Station (unavailable)\n";
+  cout << "Dunkin Po Fuel Station (available)\n";
 }
 
 void handleMaintenanceCrewDetails() {
   cout << "Maintenance Crew Details...\n";
-  // Buraya Maintenance Crew ile ilgili kodlarý ekleyin
+  printSeparator();
+  cout << "personal name " << " personal surname\n\n";
+  cout << " alihan  " << "       tartar\n";
+  cout << " mahmut  " << "       tuncer\n";
+  cout << " erol    " << "          tas\n";
+  cout << " enes    " << "          koy\n";
+  cout << " dilara  " << "        batan\n";
+  cout << " volkan  " << "         ucar\n";
 }
 
 void handleHarborServices() {
@@ -135,7 +150,7 @@ void handleHarborServices() {
     cout << "2) Maintenance Information\n";
     cout << "3) Refueling Stations\n";
     cout << "4) Maintenance Crew Details\n";
-    cout << "5) Return to Admin Menu\n";
+    cout << "5) Return to Admin Menu\n\n";
     cout << "Please enter your choice: ";
     getline(cin, input);
 
