@@ -14,6 +14,7 @@
 
 using namespace Coruh::Yachtsystem;
 using  namespace std;
+
 void handleYachtOperations() {
   cout << "Yacht Operations...\n";
 }
@@ -28,7 +29,7 @@ void handleReservationServices() {
   // Booking system, payment processing, applying discounts here.
 }
 
-//Check if string not an integer value
+//This function checks is string not an integer value
 bool convertStringToInt(const string &str, int &number) {
   //It's a class for convert a string value to correct type (int, char,double,string)
   istringstream iss(str);
@@ -41,30 +42,25 @@ bool convertStringToInt(const string &str, int &number) {
 
   return true; // Conversion successful
 }
-
-void showMenu() {
-  cout << "------------------------------------------------------------------\n";
-  cout << "Marina and Yacht Management System\n";
-  cout << "1. Yacht Operations\n";
-  cout << "2. Harbor Services\n";
-  cout << "3. Reservation Services\n";
-  cout << "4. Exit\n";
-  cout << "Please enter your choice (1-4): \n";
+// Created a function for separator
+void printSeparator() {
+  std::cout << "------------------------------------------------------------------\n";
 }
 
-int main() {
-  string input;
+// This function for admin operations.
+void handleAdminOperations() {
   int choice;
-  bool running = true;
+  bool adminRunning = true;
 
-  while (running) {
-    showMenu();
-    getline(cin, input);
-
-    if (!convertStringToInt(input, choice)) {
-      cout << "Invalid input. Please enter a number.\n";
-      continue;
-    }
+  while (adminRunning) {
+    printSeparator();
+    cout << "Admin Operations:\n";
+    cout << "1. Yacht and Boat Operations\n";
+    cout << "2. Harbor Services\n";
+    cout << "3. Reservation Services\n";
+    cout << "4. Return to Main Menu\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
 
     switch (choice) {
       case 1:
@@ -80,12 +76,60 @@ int main() {
         break;
 
       case 4:
-        cout << "Exiting the program. Thank you!\n";
-        running = false;
+        adminRunning = false;
         break;
 
       default:
         cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    }
+  }
+}
+
+//This function for user Operations
+void handleUserOperations() {
+  cout << "User Operations...\n";
+  // We will add user operations future
+}
+
+void showMainMenu() {
+  printSeparator();
+  cout << "Marina and Yacht Management System\n";
+  cout << "1. Admin\n";
+  cout << "2. User\n";
+  cout << "3. Exit\n";
+  cout << "Please enter your choice (1-3): \n";
+}
+
+int main() {
+  string input;
+  int choice;
+  bool mainRunning = true;
+
+  while (mainRunning) {
+    showMainMenu();
+    getline(cin, input);
+
+    if (!convertStringToInt(input, choice)) {
+      cout << "Invalid input. Please enter a number.\n";
+      continue;
+    }
+
+    switch (choice) {
+      case 1:
+        handleAdminOperations();
+        break;
+
+      case 2:
+        handleUserOperations();
+        break;
+
+      case 3:
+        cout << "Exiting the program. Thank you!\n";
+        mainRunning = false;
+        break;
+
+      default:
+        cout << "Invalid choice. Please enter a number between 1 and 3.\n";
     }
   }
 
