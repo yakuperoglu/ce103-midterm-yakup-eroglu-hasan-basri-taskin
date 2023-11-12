@@ -4,7 +4,8 @@
 ### C ###
 # Prerequisites
 *.d
-
+# stopped push build_win to repository
+build_win
 # Object files
 *.o
 *.ko
