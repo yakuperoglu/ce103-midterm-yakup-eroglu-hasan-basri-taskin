@@ -15,7 +15,6 @@ using namespace Coruh::Yachtsystem;
 using  namespace std;
 void handleYachtOperations() {
   cout << "Yacht Operations...\n";
-  // Add, update, delete yacht operations here.
 }
 
 void handleHarborServices() {

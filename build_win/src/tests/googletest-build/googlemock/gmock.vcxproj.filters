@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googletest\src\gtest-all.cc">
+    <ClCompile Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googletest\src\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googlemock\src\gmock-all.cc">
+    <ClCompile Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googlemock\src\gmock-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googlemock\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\src\tests\googletest\googlemock\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{018E8284-51F2-32C6-8A9E-EBDE0F29ACCD}</UniqueIdentifier>
+      <UniqueIdentifier>{EA09ED8F-E1A2-3F18-8198-7A80D04B5090}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

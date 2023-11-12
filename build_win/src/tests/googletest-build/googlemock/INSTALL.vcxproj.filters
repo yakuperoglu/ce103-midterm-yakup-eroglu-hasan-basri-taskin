@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\CMakeFiles\4047a45135d72159933dc0a0e3279435\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\CMakeFiles\177e33d57c213122dec1152ccdfac524\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F433BD1A-B512-38AF-BE5F-B635064CC0DC}</UniqueIdentifier>
+      <UniqueIdentifier>{C6756D7A-80B1-3127-A48F-CECEEA93D656}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

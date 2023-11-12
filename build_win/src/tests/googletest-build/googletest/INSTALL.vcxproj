@@ -14,9 +14,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1082A6D0-9DF9-3DB8-94C5-38C470C59F43}</ProjectGuid>
+    <ProjectGuid>{964625E7-059F-360D-A865-E1A45DC6879F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>INSTALL</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -75,7 +75,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\CMakeFiles\a95cbdfe1526f0be093862e8f5e1a6fa\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\CMakeFiles\7a97c93b846a199e5e498eda80d0fc7b\INSTALL_force.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
@@ -87,7 +87,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
@@ -101,20 +101,20 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\ZERO_CHECK.vcxproj">
-      <Project>{0709347A-D08A-3120-9C46-5ADC07C1DA63}</Project>
+    <ProjectReference Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\ZERO_CHECK.vcxproj">
+      <Project>{0067C0B2-B907-39E7-B260-D292075238A4}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\taski\source\repos\yakuperoglu\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\ALL_BUILD.vcxproj">
-      <Project>{0DA7974A-24A6-3363-93C6-4F4854578C43}</Project>
+    <ProjectReference Include="C:\Users\Yakup\Documents\GitHub\ce103-midterm-yakup-eroglu-hasan-basri-taskin\build_win\src\tests\googletest-build\googletest\ALL_BUILD.vcxproj">
+      <Project>{4581704B-0F71-33C0-BE4C-AB4C771319EC}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

@@ -1,5 +1,5 @@
-if(EXISTS "C:/Users/taski/source/repos/yakuperoglu/ce103-midterm-yakup-eroglu-hasan-basri-taskin/build_win/src/tests/utility/utility_tests[1]_tests.cmake")
-  include("C:/Users/taski/source/repos/yakuperoglu/ce103-midterm-yakup-eroglu-hasan-basri-taskin/build_win/src/tests/utility/utility_tests[1]_tests.cmake")
+if(EXISTS "C:/Users/Yakup/Documents/GitHub/ce103-midterm-yakup-eroglu-hasan-basri-taskin/build_win/src/tests/utility/utility_tests[1]_tests.cmake")
+  include("C:/Users/Yakup/Documents/GitHub/ce103-midterm-yakup-eroglu-hasan-basri-taskin/build_win/src/tests/utility/utility_tests[1]_tests.cmake")
 else()
   add_test(utility_tests_NOT_BUILT utility_tests_NOT_BUILT)
 endif()
