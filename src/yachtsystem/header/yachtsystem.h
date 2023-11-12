@@ -8,50 +8,37 @@
 #define YACHTSYSTEM_H
 
 #include "../../utility/header/commonTypes.h"
-
+using namespace std;
 namespace Coruh {
 namespace Yachtsystem {
-/**
-    @class Yachtsystem
-    @brief Provides Basic functions for various operations.
-*/
-class Yachtsystem {
+class Yacht {
  public:
-  /**
-   * Adds two numbers.
-   * @param a First operand.
-   * @param b Second operand.
-   * @return The sum of a and b.
-   */
-  static double add(double a, double b);
+  Yacht(const string &name, int length);  // Constructor
+  void displayInfo() const;  // Show yacht info
 
-  /**
-   * Subtracts the second number from the first.
-   * @param a Minuend.
-   * @param b Subtrahend.
-   * @return The result of a - b.
-   */
-  static double subtract(double a, double b);
+ private:
+  string name;
+  int length;
+};
 
-  /**
-   * Multiplies two numbers.
-   * @param a First operand.
-   * @param b Second operand.
-   * @return The product of a and b.
-   */
-  static double multiply(double a, double b);
+class Harbor {
+ public:
+  Harbor(const string &location, int capacity);  // Constructor
+  void displayInfo() const;  // Show harbor info
 
-  /**
-   * Divides the first number by the second.
-   * Throws std::invalid_argument if the second number is zero.
-   * @param a Dividend.
-   * @param b Divisor.
-   * @return The result of a / b.
-   * @throws std::invalid_argument If b is zero.
-   */
-  static double divide(double a, double b);
+ private:
+  string location;
+  int capacity;
+};
 
+class Reservation {
+ public:
+  Reservation(const string &customerName, const string &date);  // Constructor
+  void displayInfo() const;  // show reservation infos
 
+ private:
+  string customerName;
+  string reservationDate;
 };
 }
 }

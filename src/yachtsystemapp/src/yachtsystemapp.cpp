@@ -8,116 +8,85 @@
 
 // Standard Libraries
 #include <iostream>
-#include <stack>
-#include <string>
 #include <sstream>
-#include <stdexcept>
 #include "../../yachtsystem/header/yachtsystem.h"  // Adjust this include path based on your project structure
 
 using namespace Coruh::Yachtsystem;
-
-bool isOperator(char c) {
-  return (c == '+' || c == '-' || c == '*' || c == '/');
+using  namespace std;
+void handleYachtOperations() {
+  cout << "Yacht Operations...\n";
+  // Add, update, delete yacht operations here.
 }
 
-int precedence(char c) {
-  if(c == '+' || c == '-') return 1;
-
-  if(c == '*' || c == '/') return 2;
-
-  return 0;
+void handleHarborServices() {
+  cout << "Harbor Services...\n";
+  // Information about docking spaces, fuel stations, maintenance crew bla bla.
 }
 
-std::string infixToPostfix(const std::string &infix) {
-  std::stack<char> s;
-  std::ostringstream postfix;
-
-  for(char c : infix) {
-    if(std::isdigit(c)) {
-      postfix << c;
-    } else if(isOperator(c)) {
-      while(!s.empty() && precedence(s.top()) >= precedence(c)) {
-        postfix << ' ' << s.top();
-        s.pop();
-      }
-
-      postfix << ' ';
-      s.push(c);
-    } else if(c == '(') {
-      s.push(c);
-    } else if(c == ')') {
-      while(!s.empty() && s.top() != '(') {
-        postfix << ' ' << s.top();
-        s.pop();
-      }
-
-      s.pop();
-    }
-  }
-
-  while(!s.empty()) {
-    postfix << ' ' << s.top();
-    s.pop();
-  }
-
-  return postfix.str();
+void handleReservationServices() {
+  cout << "Reservation Services...\n";
+  // Booking system, payment processing, applying discounts here.
 }
 
-double evaluatePostfix(const std::string &postfix) {
-  std::stack<double> s;
-  std::istringstream iss(postfix);
-  std::string token;
+//Check if string not an integer value
+bool convertStringToInt(const string &str, int &number) {
+  //It's a class for convert a string value to correct type (int, char,double,string)
+  istringstream iss(str);
+  //tries to append
+  iss >> number;
 
-  while(iss >> token) {
-    if(isOperator(token[0])) {
-      double b = s.top();
-      s.pop();
-      double a = s.top();
-      s.pop();
-      double result;
-
-      switch(token[0]) {
-        case '+':
-          result = Yachtsystem::add(a, b);
-          break;
-
-        case '-':
-          result = Yachtsystem::subtract(a, b);
-          break;
-
-        case '*':
-          result = Yachtsystem::multiply(a, b);
-          break;
-
-        case '/':
-          if (b == 0) {
-            throw std::invalid_argument("Division by zero is not allowed.");
-          }
-
-          result = Yachtsystem::divide(a, b);
-          break;
-      }
-
-      s.push(result);
-    } else {
-      s.push(std::stod(token));
-    }
+  if (iss.fail()) {
+    return false; // Conversion failed
   }
 
-  return s.top();
+  return true; // Conversion successful
+}
+
+void showMenu() {
+  cout << "------------------------------------------------------------------\n";
+  cout << "Marina and Yacht Management System\n";
+  cout << "1. Yacht Operations\n";
+  cout << "2. Harbor Services\n";
+  cout << "3. Reservation Services\n";
+  cout << "4. Exit\n";
+  cout << "Please enter your choice (1-4): \n";
 }
 
 int main() {
-  std::string infix;
-  std::cout << "Enter an infix expression: ";
-  std::getline(std::cin, infix);
+  string input;
+  int choice;
+  bool running = true;
 
-  try {
-    std::string postfix = infixToPostfix(infix);
-    double result = evaluatePostfix(postfix);
-    std::cout << "Result: " << result << std::endl;
-  } catch(const std::invalid_argument &e) {
-    std::cerr << "Error: " << e.what() << std::endl;
+  while (running) {
+    showMenu();
+    getline(cin, input);
+
+    if (!convertStringToInt(input, choice)) {
+      cout << "Invalid input. Please enter a number.\n";
+      continue;
+    }
+
+    switch (choice) {
+      case 1:
+        handleYachtOperations();
+        break;
+
+      case 2:
+        handleHarborServices();
+        break;
+
+      case 3:
+        handleReservationServices();
+        break;
+
+      case 4:
+        cout << "Exiting the program. Thank you!\n";
+        running = false;
+        break;
+
+      default:
+        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    }
   }
 
   return 0;
