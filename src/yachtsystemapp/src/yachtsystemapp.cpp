@@ -83,13 +83,15 @@ void addYacht() {
 }
 
 void listYachts() {
+  printSeparator();
+
   if (yachts.empty()) {
-    cout << "\nThere is no yacht." << endl;
+    cout << "\nThere is no yacht.\n" << endl;
+    printSeparator();
     return;
   }
 
-  printSeparator();
-  cout << "Listing all yachts:" << endl;
+  cout << "\nListing all yachts:\n" << endl;
   int index = 1;
 
   for (const Yacht yacht : yachts) {
@@ -97,6 +99,9 @@ void listYachts() {
     yacht.displayInfo();
     cout << endl;
   }
+
+  cout << "";
+  printSeparator();
 }
 
 void removeYacht() {
