@@ -135,6 +135,81 @@ void removeYacht() {
   }
 }
 
+void updateYacht() {
+  if (yachts.empty()) {
+    cout << "\nThere are no yachts to update." << endl;
+    return;
+  }
+
+  int yachtIndex = -1;
+
+  while (true) {
+    listYachts();
+    cout << "Enter the number of the yacht to update (or type 'exit' to cancel): ";
+    string input;
+    getline(cin, input);
+
+    if (input == "exit") {
+      cout << "Yacht update cancelled." << endl;
+      return;
+    }
+
+    if (tryAppendIntegerToString(input, yachtIndex) && yachtIndex > 0 && yachtIndex <= static_cast<int>(yachts.size())) {
+      yachtIndex--; // Adjust for 0-based index
+      break;
+    } else {
+      cout << endl;
+
+      if (yachtIndex <= 0) {
+        cout << "Please enter a number higher than 0. ";
+      }
+
+      if (yachtIndex > static_cast<int>(yachts.size())) {
+        cout << "Please enter a number lower than " << static_cast<int>(yachts.size()) << endl;
+      }
+    }
+  }
+
+  string updateChoice;
+
+  while (true) {
+    cout << "1. Update Name\n2. Update Length\n3. Update Both\nEnter your choice  (or type 'exit' to cancel): ";
+    getline(cin, updateChoice);
+
+    if (updateChoice == "1" || updateChoice == "2" || updateChoice == "3") {
+      break;
+    } else {
+      cout << "Invalid choice. Please try again." << endl;
+    }
+  }
+
+  if (updateChoice == "1" || updateChoice == "3") {
+    string newName;
+    cout << "Enter new name: ";
+    getline(cin, newName);
+    yachts[yachtIndex].setName(newName); // Update name using setName method
+  }
+
+  if (updateChoice == "2" || updateChoice == "3") {
+    while (true) {
+      cout << "Enter new length: ";
+      string inputLeng;
+      getline(cin, inputLeng);
+      int newLength;
+
+      if (tryAppendIntegerToString(inputLeng, newLength) && newLength > 0) {
+        yachts[yachtIndex].setLength(newLength); // Update length directly
+        break;
+      } else {
+        cout << "Invalid length. Please try again." << endl;
+      }
+    }
+  }
+
+  cout << "Yacht updated successfully." << endl;
+}
+
+
 void handleYachtOperations() {
   string input;
   int choice;
@@ -146,7 +221,8 @@ void handleYachtOperations() {
     printSeparator();
     cout << "1. Add Yacht\n";
     cout << "2. Remove Yacht\n";
-    cout << "3. List Yachts\n";
+    cout << "3. Update Yacht\n";
+    cout << "4. List Yachts\n";
     cout << "4. Return to Admin Menu\n";
     cout << "Enter your choice: ";
     getline(cin, input);
@@ -164,15 +240,19 @@ void handleYachtOperations() {
         break;
 
       case 3:
-        listYachts();
+        updateYacht();
         break;
 
       case 4:
+        listYachts();
+        break;
+
+      case 5:
         yachtRunning = false;
         break;
 
       default:
-        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+        cout << "Invalid choice. Please enter a number between 1 and 5.\n";
     }
   }
 }
