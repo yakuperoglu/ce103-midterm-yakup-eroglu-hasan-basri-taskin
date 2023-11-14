@@ -54,8 +54,7 @@ bool tryAppendStringToInteger(const string &input, int &choice) {
 void addYacht() {
   string name, lengthInput, ownerName, maintanceStatus;
   int length;
-  cout << "\n";
-  printSeparator();
+  clearScreen();
   cout << "Enter Yacht Name (or type 'exit' to cancel): ";
   getline(cin, name);
 
@@ -111,15 +110,11 @@ void addYacht() {
 }
 
 void listYachts() {
-  printSeparator();
-
   if (yachts.empty()) {
-    cout << "\nThere is no yacht.\n" << endl;
-    printSeparator();
-    return;
+    cout << "There is no yacht.\n" << endl;
   }
 
-  cout << "\nListing all yachts:\n" << endl;
+  cout << "Listing all yachts:\n" << endl;
   int index = 1;
 
   for (const Yacht yacht : yachts) {
@@ -127,15 +122,39 @@ void listYachts() {
     yacht.displayInfo();
     cout << endl;
   }
+}
 
-  cout << "";
-  printSeparator();
+void listYachtsAdminPanel() {
+  listYachts();
+
+  while (true) {
+    string input;
+    cout << "Type 'exit' to return to yacht operations: ";
+    getline(cin, input);
+
+    if (input == "exit") {
+      cout << "Returning to yacht operations...\n";
+      return;
+    }
+  }
 }
 
 void removeYacht() {
+  clearScreen();
+
   if (yachts.empty()) {
-    cout << "\nThere are no yachts to remove." << endl;
-    return;
+    cout << "There are no yachts to remove.\n" << endl;
+
+    while (yachts.empty() == true) {
+      string input;
+      cout << "Type 'exit' to return to yacht operations: ";
+      getline(cin, input);
+
+      if (input == "exit") {
+        cout << "Returning to yacht operations...\n";
+        return;
+      }
+    }
   }
 
   while (true) {
@@ -164,9 +183,21 @@ void removeYacht() {
 }
 
 void updateYacht() {
+  clearScreen();
+
   if (yachts.empty()) {
-    cout << "\nThere are no yachts to update." << endl;
-    return;
+    cout << "There are no yachts to update.\n" << endl;
+
+    while (true) {
+      string input;
+      cout << "Type 'exit' to return to yacht operations: ";
+      getline(cin, input);
+
+      if (input == "exit") {
+        cout << "Returning to yacht operations...\n";
+        return;
+      }
+    }
   }
 
   int yachtIndex = -1;
@@ -250,8 +281,8 @@ void handleYachtOperations() {
   bool yachtRunning = true;
 
   while (yachtRunning) {
-    cout << "\nYacht Operations:\n";
-    printSeparator();
+    clearScreen();
+    cout << "Yacht Operations:\n";
     cout << "1. Add Yacht\n";
     cout << "2. Remove Yacht\n";
     cout << "3. Update Yacht\n";
@@ -277,7 +308,7 @@ void handleYachtOperations() {
         break;
 
       case 4:
-        listYachts();
+        listYachtsAdminPanel();
         break;
 
       case 5:
