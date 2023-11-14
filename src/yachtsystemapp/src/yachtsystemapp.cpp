@@ -441,8 +441,7 @@ void handleAdminOperations() {
     cout << "Admin Operations:\n";
     cout << "1. Yacht and Boat Operations\n";
     cout << "2. Harbor Services\n";
-    cout << "3. Reservation Services\n";
-    cout << "4. Return to Main Menu\n";
+    cout << "3. Return to Main Menu\n";
     cout << "Enter your choice: ";
     getline(cin, input);
 
@@ -459,10 +458,6 @@ void handleAdminOperations() {
         break;
 
       case 3:
-        handleReservationServices();
-        break;
-
-      case 4:
         adminRunning = false;
         break;
 
@@ -474,8 +469,34 @@ void handleAdminOperations() {
 
 //This function for user Operations
 void handleUserOperations() {
-  cout << "User Operations...\n";
-  // We will add user operations future
+  string input;
+  int choice;
+  bool userRunning = true;
+
+  while (userRunning) {
+    clearScreen();
+    cout << "User Operations:\n";
+    cout << "1. reservationServices\n";
+    cout << "2. Return to Main Menu\n";
+    cout << "Enter your choice: ";
+    getline(cin, input);
+
+    if (!tryAppendStringToInteger(input, choice))
+      continue;
+
+    switch (choice) {
+      case 1:
+        handleReservationServices();
+        break;
+
+      case 2:
+        userRunning = false;
+        break;
+
+      default:
+        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    }
+  }
 }
 
 void showMainMenu() {
