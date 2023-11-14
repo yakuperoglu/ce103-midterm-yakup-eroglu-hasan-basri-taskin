@@ -44,7 +44,7 @@ bool convertStringToInt(const string &str, int &number) {
 
 bool tryAppendStringToInteger(const string &input, int &choice) {
   if (!convertStringToInt(input, choice)) {
-    cout << "Invalid input. Please enter a number.\n";
+    cout << "Invalid input. Please enter a number.";
     return false;
   }
 
@@ -206,6 +206,7 @@ void updateYacht() {
 
   while (true) {
     listYachts();
+    cout << "\n";
     cout << "Enter the number of the yacht to update (or type 'exit' to cancel): ";
     string input;
     getline(cin, input);
@@ -224,7 +225,7 @@ void updateYacht() {
       cout << endl;
 
       if (yachtIndex <= 0) {
-        cout << "Please enter a number higher than 0. " << endl;
+        cout << "Please enter a number higher than 0.\n" << endl;
       }
 
       if (yachtIndex > static_cast<int>(yachts.size())) {
@@ -473,10 +474,52 @@ void handleHarborServices() {
     }
   }
 }
+void yachtReservation() {
+}
+void boatReservation() {
+}
+void paymentMethods() {
+}
 
 void handleReservationServices() {
-  cout << "Reservation Services...\n";
-  // Booking system, payment processing, applying discounts here.
+  string input;
+  int choice;
+  bool ReservationRunning = true;
+
+  while (ReservationRunning) {
+    clearScreen();
+    cout << "Reservation Services...\n";
+    cout << "1) yacht reservation \n";
+    cout << "2) boat reservation\n";
+    cout << "3) payment methods\n";
+    cout << "4) Return to Admin Menu\n\n";
+    cout << "Please enter your choice: ";
+    getline(cin, input);
+
+    if (!tryAppendStringToInteger(input, choice))
+      continue;
+
+    switch (choice) {
+      case 1:
+        yachtReservation();
+        break;
+
+      case 2:
+        boatReservation();
+        break;
+
+      case 3:
+        paymentMethods();
+        break;
+
+      case 4:
+        ReservationRunning = false;
+        break;
+
+      default:
+        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    }
+  }
 }
 
 // This function for admin operations.
