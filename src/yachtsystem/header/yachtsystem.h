@@ -15,12 +15,15 @@ namespace Yachtsystem {
 struct Yacht {
   void setName(const string &name);  // Set the name of the yacht
   void setLength(int length);         // Set the length of the yacht
+  void setMaintanceStatus(string &input);         // Set the maintance status of yacht
   void setOwner(string &name);         // Set the length of the yacht
   //We setted const this function because this function just read our variables. It cannot be changed with this function.
   void displayInfo() const;              // Display yacht information
+  void displayExtendedInfo() const;              // Display yacht information
 
 
  private:
+  bool maintanceStatus;
   string name;
   int length;
   string owner;
