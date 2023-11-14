@@ -12,7 +12,7 @@ using  namespace std;
 
 //Define all yachts to global.
 //If we want to store yachts in an array we must define vector.We can also say vectors, dynamic arrays.
-vector<Yacht> yachts;
+vector<SeaVehicle> yachts;
 
 // Created a function for separator
 void printSeparator() {
@@ -57,11 +57,11 @@ void addYacht() {
 	clearScreen();
 
 	while (true) {
-		cout << "Enter Yacht Name (or type 'exit' to cancel): ";
+		cout << "Enter SeaVehicle Name (or type 'exit' to cancel): ";
 		getline(cin, name);
 
 		if (name == "exit") {
-			cout << "Yacht addition cancelled." << endl;
+			cout << "SeaVehicle addition cancelled." << endl;
 			return; // Abort the proceess and exit function.
 		}
 
@@ -74,11 +74,11 @@ void addYacht() {
 	}
 
 	while (true) {
-		cout << "Enter Yacht Length (or type 'exit' to cancel): ";
+		cout << "Enter SeaVehicle Length (or type 'exit' to cancel): ";
 		getline(cin, lengthInput);
 
 		if (lengthInput == "exit") {
-			cout << "Yacht addition cancelled." << endl;
+			cout << "SeaVehicle addition cancelled." << endl;
 			return; // Abort the proceess and exit function.
 		}
 
@@ -93,11 +93,11 @@ void addYacht() {
 	}
 
 	while (true) {
-		cout << "Enter Yacht owner name (or type 'exit' to cancel): ";
+		cout << "Enter SeaVehicle owner name (or type 'exit' to cancel): ";
 		getline(cin, ownerName);
 
 		if (ownerName == "exit") {
-			cout << "Yacht addition cancelled." << endl;
+			cout << "SeaVehicle addition cancelled." << endl;
 			return; // Abort the proceess and exit function.
 		}
 
@@ -110,11 +110,11 @@ void addYacht() {
 	}
 
 	while (true) {
-		cout << "Enter Yacht maintance status. if okey type 'yes' if not type 'no' (or type 'exit' to cancel): ";
+		cout << "Enter SeaVehicle maintance status. if okey type 'yes' if not type 'no' (or type 'exit' to cancel): ";
 		getline(cin, maintanceStatus);
 
 		if (maintanceStatus == "exit") {
-			cout << "Yacht addition cancelled." << endl;
+			cout << "SeaVehicle addition cancelled." << endl;
 			return; // Abort the proceess and exit function.
 		}
 
@@ -132,7 +132,7 @@ void addYacht() {
 	}
 
 	// Create a yacht and then add the list
-	Yacht newYacht;
+	SeaVehicle newYacht;
 	newYacht.setName(name);
 	newYacht.setLength(length);
 	newYacht.setOwner(ownerName);
@@ -151,7 +151,7 @@ void listYachts() {
 		cout << "Listing all yachts:\n" << endl;
 		int index = 1;
 
-		for (const Yacht yacht : yachts) {
+		for (const SeaVehicle yacht : yachts) {
 			cout << index++ << ". ";
 			yacht.displayInfo();
 			cout << endl;
@@ -196,7 +196,7 @@ void removeYacht() {
 		getline(cin, input);
 
 		if (input == "exit") {
-			cout << "Yacht removal cancelled." << endl;
+			cout << "SeaVehicle removal cancelled." << endl;
 			break; // Cancel the proccess and exit the function.
 		}
 
@@ -206,7 +206,7 @@ void removeYacht() {
 		if (tryAppendStringToInteger(input, choice) && choice > 0 && choice <= static_cast<int>(yachts.size())) {
 			//erase is a function of vectors. It deletes by index.
 			yachts.erase(yachts.begin() + choice - 1); // Index adjustment since vector index starts from 0
-			cout << "Yacht removed." << endl;
+			cout << "SeaVehicle removed." << endl;
 			return; // Delete yacht and exit the function
 		}
 		else {
@@ -240,7 +240,7 @@ void updateYacht() {
 		getline(cin, input);
 
 		if (input == "exit") {
-			cout << "Yacht update cancelled." << endl;
+			cout << "SeaVehicle update cancelled." << endl;
 			return;
 		}
 
@@ -270,7 +270,7 @@ void updateYacht() {
 		getline(cin, updateChoice);
 
 		if (updateChoice == "exit") {
-			cout << "Yacht update cancelled." << endl;
+			cout << "SeaVehicle update cancelled." << endl;
 			return;
 		}
 
@@ -321,7 +321,7 @@ void updateYacht() {
 		yachts[yachtIndex].setMaintanceStatus(newStatus); // Update status using setMaintanceStatus method
 	}
 
-	cout << "Yacht updated successfully." << endl;
+	cout << "SeaVehicle updated successfully." << endl;
 }
 
 
@@ -333,10 +333,10 @@ void yachtOperations() {
 
 	while (yachtRunning) {
 		clearScreen();
-		cout << "Yacht Operations:\n";
-		cout << "1. Add Yacht\n";
-		cout << "2. Remove Yacht\n";
-		cout << "3. Update Yacht\n";
+		cout << "SeaVehicle Operations:\n";
+		cout << "1. Add SeaVehicle\n";
+		cout << "2. Remove SeaVehicle\n";
+		cout << "3. Update SeaVehicle\n";
 		cout << "4. List Yachts\n";
 		cout << "5. Return to Admin Menu\n";
 		cout << "Enter your choice: ";
@@ -396,7 +396,7 @@ void maintenanceInformation() {
 	printSeparator();
 	cout << " yacht_name " << " yacht_condition " << "Maintance Status " << endl;
 	printSeparator();
-	for (const Yacht yacht : yachts)
+	for (const SeaVehicle yacht : yachts)
 	{
 		yacht.displayExtendedInfo();
 	}
@@ -550,7 +550,7 @@ void adminOperations() {
 	while (adminRunning) {
 		clearScreen();
 		cout << "Admin Operations:\n";
-		cout << "1. Yacht and Boat Operations\n";
+		cout << "1. SeaVehicle and Boat Operations\n";
 		cout << "2. Harbor Services\n";
 		cout << "3. Return to Main Menu\n";
 		cout << "Enter your choice: ";
@@ -587,7 +587,7 @@ void userOperations() {
 	while (userRunning) {
 		clearScreen();
 		cout << "User Operations:\n";
-		cout << "1. reservationServices\n";
+		cout << "1. Reservation Services\n";
 		cout << "2. Return to Main Menu\n";
 		cout << "Enter your choice: ";
 		getline(cin, input);
@@ -617,7 +617,7 @@ void showMainMenu() {
 
 	while (mainRunning) {
 		clearScreen();
-		cout << "Marina and Yacht Management System\n";
+		cout << "Marina and SeaVehicle Management System\n";
 		cout << "1. Admin\n";
 		cout << "2. User\n";
 		cout << "3. Exit\n";

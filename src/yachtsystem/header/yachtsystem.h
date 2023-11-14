@@ -12,7 +12,7 @@ using namespace std;
 
 namespace Coruh {
 namespace Yachtsystem {
-struct Yacht {
+struct SeaVehicle {
   void setName(const string &name);  // Set the name of the yacht
   void setLength(int length);         // Set the length of the yacht
   void setMaintanceStatus(string &input);         // Set the maintance status of yacht

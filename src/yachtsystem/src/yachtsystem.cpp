@@ -5,28 +5,28 @@ using namespace Coruh::Yachtsystem;
 using namespace std;
 // Yachtsystem.cpp
 
-// Yacht class methods
-void Yacht::setName(const string& name) {
+// SeaVehicle class methods
+void SeaVehicle::setName(const string& name) {
 	this->name = name; //The value used to determine the name of the yacht
 }
 
-void Yacht::setLength(int length) {
+void SeaVehicle::setLength(int length) {
 	this->length = length; //The value used to determine the length of the yacht
 }
 
-void Yacht::displayInfo() const {
-	cout << "Yacht Name: " << name << ", Length: " << length << ", Yacht owner: " << owner; //Displays the name, length and yacht owner values ​​of the Yacht
+void SeaVehicle::displayInfo() const {
+	cout << "SeaVehicle Name: " << name << ", Length: " << length << ", SeaVehicle owner: " << owner; //Displays the name, length and yacht owner values ​​of the SeaVehicle
 }
 
-void Yacht::displayExtendedInfo() const {
-	cout << name  << " | " << length << " | " << owner << " | " << (maintanceStatus == true ? "Maintance necessary" : "Not necessary") << endl; //Displays the name, length, yachtOwner and maintanceStauts values ​​of the Yacht
+void SeaVehicle::displayExtendedInfo() const {
+	cout << name  << " | " << length << " | " << owner << " | " << (maintanceStatus == true ? "Maintance necessary" : "Not necessary") << endl; //Displays the name, length, yachtOwner and maintanceStauts values ​​of the SeaVehicle
 }
 
-void Yacht::setMaintanceStatus(string& input) {
+void SeaVehicle::setMaintanceStatus(string& input) {
 	this->maintanceStatus = (input == "yes" ? true : false);  //The value used to determine the status of the yacht
 }
 
-void Yacht::setOwner(string& ownerName) {
+void SeaVehicle::setOwner(string& ownerName) {
 	this->owner = ownerName;//The value used to determine the owener of the yacht
 }
 
