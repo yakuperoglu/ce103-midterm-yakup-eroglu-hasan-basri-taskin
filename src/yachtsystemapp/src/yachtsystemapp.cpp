@@ -112,19 +112,20 @@ void addYacht() {
 void listYachts() {
   if (yachts.empty()) {
     cout << "There is no yacht.\n" << endl;
-  }
+  } else {
+    cout << "Listing all yachts:\n" << endl;
+    int index = 1;
 
-  cout << "Listing all yachts:\n" << endl;
-  int index = 1;
-
-  for (const Yacht yacht : yachts) {
-    cout << index++ << ". ";
-    yacht.displayInfo();
-    cout << endl;
+    for (const Yacht yacht : yachts) {
+      cout << index++ << ". ";
+      yacht.displayInfo();
+      cout << endl;
+    }
   }
 }
 
 void listYachtsAdminPanel() {
+  clearScreen();
   listYachts();
 
   while (true) {
@@ -177,6 +178,7 @@ void removeYacht() {
       cout << "Yacht removed." << endl;
       return; // Delete yacht and exit the function
     } else {
+      clearScreen();
       cout << "Invalid input. Please try again." << endl;
     }
   }
@@ -200,7 +202,7 @@ void updateYacht() {
     }
   }
 
-  int yachtIndex = -1;
+  int yachtIndex = 1;
 
   while (true) {
     listYachts();
@@ -213,6 +215,8 @@ void updateYacht() {
       return;
     }
 
+    clearScreen();
+
     if (tryAppendStringToInteger(input, yachtIndex) && yachtIndex > 0 && yachtIndex <= static_cast<int>(yachts.size())) {
       yachtIndex--; // Adjust for 0-based index
       break;
@@ -220,7 +224,7 @@ void updateYacht() {
       cout << endl;
 
       if (yachtIndex <= 0) {
-        cout << "Please enter a number higher than 0. ";
+        cout << "Please enter a number higher than 0. " << endl;
       }
 
       if (yachtIndex > static_cast<int>(yachts.size())) {
@@ -232,7 +236,7 @@ void updateYacht() {
   string updateChoice;
 
   while (true) {
-    cout << "1. Update Name\n2. Update Length\n3. Update Both\nEnter your choice  (or type 'exit' to cancel): ";
+    cout << "1. Update Name\n2. Update Length\n 3. Update Owner Name\n 4. Update Maintance Status \n 5. Update All of them\nEnter your choice  (or type 'exit' to cancel): ";
     getline(cin, updateChoice);
 
     if (updateChoice == "exit") {
@@ -240,21 +244,21 @@ void updateYacht() {
       return;
     }
 
-    if (updateChoice == "1" || updateChoice == "2" || updateChoice == "3") {
+    if (updateChoice == "1" || updateChoice == "2" || updateChoice == "3" || updateChoice == "4" || updateChoice == "5") {
       break;
     } else {
       cout << "Invalid choice. Please try again." << endl;
     }
   }
 
-  if (updateChoice == "1" || updateChoice == "3") {
+  if (updateChoice == "1" || updateChoice == "5") {
     string newName;
     cout << "Enter new name: ";
     getline(cin, newName);
     yachts[yachtIndex].setName(newName); // Update name using setName method
   }
 
-  if (updateChoice == "2" || updateChoice == "3") {
+  if (updateChoice == "2" || updateChoice == "5") {
     while (true) {
       cout << "Enter new length: ";
       string inputLeng;
@@ -268,6 +272,20 @@ void updateYacht() {
         cout << "Invalid length. Please try again." << endl;
       }
     }
+  }
+
+  if (updateChoice == "3" || updateChoice == "5") {
+    string newOwnerName;
+    cout << "Enter new owner name: ";
+    getline(cin, newOwnerName);
+    yachts[yachtIndex].setOwner(newOwnerName); // Update owner name using setOwner method
+  }
+
+  if (updateChoice == "4" || updateChoice == "5") {
+    string newStatus;
+    cout << "Enter new name: ";
+    getline(cin, newStatus);
+    yachts[yachtIndex].setMaintanceStatus(newStatus); // Update status using setMaintanceStatus method
   }
 
   cout << "Yacht updated successfully." << endl;
