@@ -115,8 +115,6 @@ void addYacht() {
 	}
 	while (true)
 	{
-
-
 		cout << "Enter Yacht maintance status. if okey type 'yes' if not type 'no' (or type 'exit' to cancel): ";
 		getline(cin, maintanceStatus);
 
@@ -130,7 +128,13 @@ void addYacht() {
 		}
 		else
 		{
-			break;
+			if (maintanceStatus == "yes" || maintanceStatus == "no")
+			{
+				break;
+			}else
+			{
+				cout << "Please just type 'yes' or 'no'\n";
+			}
 		}
 	}
 
@@ -168,13 +172,9 @@ void listYachtsAdminPanel() {
 
 	while (true) {
 		string input;
-		cout << "Type 'exit' to return to yacht operations: ";
+		cout << "Type something to return to yacht operations: ";
 		getline(cin, input);
-
-		if (input == "exit") {
-			cout << "Returning to yacht operations...\n";
-			return;
-		}
+		return;
 	}
 }
 
@@ -231,13 +231,9 @@ void updateYacht() {
 
 		while (true) {
 			string input;
-			cout << "Type 'exit' to return to yacht operations: ";
+			cout << "Type something to return to yacht operations: ";
 			getline(cin, input);
-
-			if (input == "exit") {
-				cout << "Returning to yacht operations...\n";
-				return;
-			}
+			return;
 		}
 	}
 
@@ -277,7 +273,7 @@ void updateYacht() {
 	string updateChoice;
 
 	while (true) {
-		cout << "1. Update Name\n2. Update Length\n 3. Update Owner Name\n 4. Update Maintance Status \n 5. Update All of them\nEnter your choice  (or type 'exit' to cancel): ";
+		cout << "1. Update Name\n2. Update Length\n3. Update Owner Name\n4. Update Maintance Status \n5. Update All of them\nEnter your choice  (or type 'exit' to cancel): ";
 		getline(cin, updateChoice);
 
 		if (updateChoice == "exit") {
@@ -289,6 +285,7 @@ void updateYacht() {
 			break;
 		}
 		else {
+			clearScreen();
 			cout << "Invalid choice. Please try again." << endl;
 		}
 	}
@@ -326,7 +323,7 @@ void updateYacht() {
 
 	if (updateChoice == "4" || updateChoice == "5") {
 		string newStatus;
-		cout << "Enter new name: ";
+		cout << "Enter new status: ";
 		getline(cin, newStatus);
 		yachts[yachtIndex].setMaintanceStatus(newStatus); // Update status using setMaintanceStatus method
 	}
