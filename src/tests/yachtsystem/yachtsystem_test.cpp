@@ -80,11 +80,6 @@ TEST_F(ReservationTestWithOutput, DisplayInfo) {
     EXPECT_EQ(capturedCout.str(), expectedOutput);
 }
 
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
 // bu olabilir // (deðilmiþ)
 int main(int argc, char** argv) {
 #ifdef ENABLE_YACHTSYSTEM_TEST
