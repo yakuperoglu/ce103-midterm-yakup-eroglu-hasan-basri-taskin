@@ -1,57 +1,96 @@
-//#define ENABLE_YACHTSYSTEM_TEST  // Uncomment this line to enable the Yachtsystem tests
+#include <gtest/gtest.h>
+#include "yachtsystem.h"
+#include <sstream>
+//bu olabilir //   #include "../../yachtsystem/header/yachtsystem.h" (deðilmiþ)
 
-#include "gtest/gtest.h"
-#include "../../yachtsystem/header/yachtsystem.h"  // Adjust this include path based on your project structure
+// son bu kaldý //
+class YachtsystemTest : public ::testing::Test {
+protected:
+    void SetUp() override {
+        // Setup test data
+    }
+
+    void TearDown() override {
+        // Clean up test data
+    }
+};
+
 
 using namespace Coruh::Yachtsystem;
 
-class YachtsystemTest : public ::testing::Test {
- protected:
-  void SetUp() override {
-    // Setup test data
-  }
+// setName fonksiyonu için test
+TEST(SeaVehicleTest, SetName) {
+    SeaVehicle vehicle;
+    EXPECT_TRUE(vehicle.setName("Yacht A")); // Geçerli isim
+    EXPECT_FALSE(vehicle.setName(""));       // Geçersiz isim
+}
 
-  void TearDown() override {
-    // Clean up test data
-  }
+// setLength fonksiyonu için test
+TEST(SeaVehicleTest, SetLength) {
+    SeaVehicle vehicle;
+    EXPECT_TRUE(vehicle.setLength(30));  // Geçerli uzunluk
+    EXPECT_FALSE(vehicle.setLength(-1)); // Geçersiz uzunluk
+}
+
+// setMaintanceStatus fonksiyonu için test
+TEST(SeaVehicleTest, SetMaintanceStatus) {
+    SeaVehicle vehicle;
+    EXPECT_TRUE(vehicle.setMaintanceStatus("yes")); // Geçerli durum
+    EXPECT_TRUE(vehicle.setMaintanceStatus("no"));  // Geçerli durum
+    EXPECT_FALSE(vehicle.setMaintanceStatus("maybe")); // Geçersiz durum
+}
+
+// setOwner fonksiyonu için test
+TEST(SeaVehicleTest, SetOwner) {
+    SeaVehicle vehicle;
+    EXPECT_TRUE(vehicle.setOwner("John Doe")); // Geçerli sahip ismi
+    EXPECT_FALSE(vehicle.setOwner(""));        // Geçersiz sahip ismi
+}
+// setCustomerName fonksiyonu için test
+TEST(ReservationTest, SetCustomerName) {
+    Reservation reservation;
+    EXPECT_TRUE(reservation.setCustomerName("John Doe")); // Geçerli müþteri ismi
+    EXPECT_FALSE(reservation.setCustomerName(""));        // Geçersiz müþteri ismi
+}
+
+class ReservationTestWithOutput : public ::testing::Test {
+protected:
+    std::streambuf* originalCoutStreambuf;
+    std::ostringstream capturedCout;
+
+    void SetUp() override {
+        originalCoutStreambuf = std::cout.rdbuf();
+        std::cout.rdbuf(capturedCout.rdbuf());
+    }
+
+    void TearDown() override {
+        std::cout.rdbuf(originalCoutStreambuf);
+    }
 };
 
-TEST_F(YachtsystemTest, TestAdd) {
-  double result = Yachtsystem::add(5.0, 3.0);
-  EXPECT_DOUBLE_EQ(result, 8.0);
+// displayInfo fonksiyonu için test
+TEST_F(ReservationTestWithOutput, DisplayInfo) {
+    Reservation reservation;
+    reservation.setCustomerName("John Doe");
+
+    reservation.displayInfo();
+
+    // Çýktýyý kontrol et
+    std::string expectedOutput = "Reservation Name: John Doe, Date: \n"; // 'Date' alaný boþ býrakýldýðý için böyle olacak
+    EXPECT_EQ(capturedCout.str(), expectedOutput);
 }
 
-TEST_F(YachtsystemTest, TestSubtract) {
-  double result = Yachtsystem::subtract(5.0, 3.0);
-  EXPECT_DOUBLE_EQ(result, 2.0);
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
-TEST_F(YachtsystemTest, TestMultiply) {
-  double result = Yachtsystem::multiply(5.0, 3.0);
-  EXPECT_DOUBLE_EQ(result, 15.0);
-}
-
-TEST_F(YachtsystemTest, TestDivide) {
-  double result = Yachtsystem::divide(6.0, 3.0);
-  EXPECT_DOUBLE_EQ(result, 2.0);
-}
-
-TEST_F(YachtsystemTest, TestDivideByZero) {
-  EXPECT_THROW(Yachtsystem::divide(5.0, 0.0), std::invalid_argument);
-}
-
-/**
- * @brief The main function of the test program.
- *
- * @param argc The number of command-line arguments.
- * @param argv An array of command-line argument strings.
- * @return int The exit status of the program.
- */
-int main(int argc, char **argv) {
+// bu olabilir // (deðilmiþ)
+int main(int argc, char** argv) {
 #ifdef ENABLE_YACHTSYSTEM_TEST
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 #else
-  return 0;
+    return 0;
 #endif
 }
